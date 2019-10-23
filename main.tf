@@ -10,7 +10,7 @@ provider "google" {
 }
 resource "google_project_service" "enable_destination_api" {
   project            = var.project_id
-  service            = "bigquery-json.googleapis.com"
+  service            = "bigquery.googleapis.com"
   disable_on_destroy = false
 }
 resource "google_bigquery_dataset" "main" {
