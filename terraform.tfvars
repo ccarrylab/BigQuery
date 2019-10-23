@@ -14,7 +14,7 @@ access_rules = [
         user_by_email = "anubhavm5164@gmail.com"
     },
     {
-        role          = "roles/bigquery.jobUser"
+        role          = "roles/bigquery.dataViewer"
         user_by_email = "anubbhav777@gmail.com"
     }
 ]
