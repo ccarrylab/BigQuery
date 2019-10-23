@@ -1,4 +1,4 @@
-project_id        = "us-con-gcp-svc-206218"
+project_id        = "nubbhav-lien219-withli"
 time_partitioning = "DAY"
 dataset_id        = "bqtest"
 description       = "some description"
@@ -6,16 +6,16 @@ location          = "US"
 dataset_labels = {
   env      = "dev"
   billable = "true"
-  owner    = "janesmith"
+  owner    = "anubbhavm"
 }
 access_rules = [
     {
         role          = "roles/bigquery.admin"
-        user_by_email = "sanmmishra@dev.ocg.deloitte.com"
+        user_by_email = "anubhavm5164@gmail.com"
     },
     {
-        role          = "roles/bigquery.admin"
-        user_by_email = "gokramesh@dev.ocg.deloitte.com"
+        role          = "roles/bigquery.jobUser"
+        user_by_email = "anubbhav777@gmail.com"
     }
 ]
 
@@ -25,7 +25,7 @@ tables = [
     labels = {
       env      = "dev"
       billable = "true"
-      owner    = "joedoe"
+      owner    = "anubbhavm"
     },
   },
   {
@@ -33,7 +33,7 @@ tables = [
     labels = {
       env      = "devops"
       billable = "true"
-      owner    = "joedoe"
+      owner    = "anubbhavm"
     },
   }
 ]
