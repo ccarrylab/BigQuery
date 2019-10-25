@@ -1,4 +1,4 @@
-project_id        = "anubbhav-lien219-withli"
+project_id        = "anubbhav-project-1"
 time_partitioning = "DAY"
 dataset_id        = "bqtest"
 description       = "some description"
