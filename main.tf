@@ -39,11 +39,28 @@ resource "google_bigquery_dataset" "main" {
 
 
 
-resource "google_bigquery_table" "main" {
+/*resource "google_bigquery_table" "main" {
   count         = length(var.tables)
   dataset_id    = google_bigquery_dataset.main.dataset_id
   table_id      = var.tables[count.index]["table_id"]
   labels        = var.tables[count.index]["labels"]
+  project       = var.project_id
+
+  time_partitioning {
+    type = var.time_partitioning
+  }
+}*/
+
+resource "google_bigquery_table" "main" {
+  for_each = [for t in var.tables: {
+    table_id = t.table_id
+    labels = t.labels
+  }
+]
+
+  dataset_id    = google_bigquery_dataset.main.dataset_id
+  table_id      = each.value.table_id
+  labels        = each.value.labels
   project       = var.project_id
 
   time_partitioning {
