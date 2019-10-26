@@ -19,7 +19,7 @@ access_rules = [
     }
 ]
 
-tables = [
+/*tables = [
   {
     table_id = "footable",
     labels = {
@@ -35,5 +35,16 @@ tables = [
       billable = "true"
       owner    = "anubbhavm"
     },
+  }
+]*/
+
+tables = [
+  {
+    table_id = "footable",
+    description = "This is a foot table"
+  },
+  {
+    table_id = "bartable",
+    description = "This is a bar table"
   }
 ]

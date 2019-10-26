@@ -26,7 +26,7 @@ variable "access_rules" {
 #  type = list(map(string))
 }
 
-variable "tables" {
+/*variable "tables" {
   description = "A list of maps that includes both table_id and schema in each element, the table(s) will be created on the single dataset"
   default     = []
   type = list(object({
@@ -34,4 +34,9 @@ variable "tables" {
   #  schema   = string,
     labels   = map(string),
   }))
-}
+}*/
+
+variable "tables" {
+  description = "A list of maps that includes both table_id and schema in each element, the table(s) will be created on the single dataset"
+  default     = []
+  }
