@@ -1,4 +1,4 @@
-project_id        = "anubbhav-project-2"
+project_id        = "anubbhav-project-3"
 time_partitioning = "DAY"
 dataset_id        = "bqtest"
 description       = "some description"
@@ -15,10 +15,50 @@ access_rules = [
     },
     {
         role          = "roles/bigquery.dataViewer"
+        user_by_email = "anviviolet@gmail.com"
+    },
+    {
+        role          = "roles/bigquery.dataOwner"
         user_by_email = "anubbhav777@gmail.com"
     }
 ]
 
+# Input of type map(map(string)) using for_each argument in resource block
+# Key of each map is the table_id
+tables = {
+ footable = {
+    description = "This is footable"
+    expiration_time = 6600000
+    labels = {
+      env      = "dev"
+      billable = "true"
+      owner    = "anubbhavm"
+      }
+    external_data_configuration = {
+      autodetect    = true
+      source_format = "GOOGLE_SHEETS"
+      source_uris = []
+    }
+  },
+
+ bartable = {
+    description = "This is bartable"
+    expiration_time = 9600000
+     labels = {
+       env      = "devops"
+       billable = "true"
+       owner    = "anubbhavm"
+     }
+
+    external_data_configuration = {
+      autodetect    = false
+      source_format = "GOOGLE_SHEETS"
+      source_uris = []
+    }
+  }
+}
+
+# This is how the tables variable needs to be input if count argument is used
 /*tables = [
   {
     table_id = "footable",
@@ -37,14 +77,3 @@ access_rules = [
     },
   }
 ]*/
-
-tables = [
-  {
-    table_id = "footable",
-    description = "This is a foot table"
-  },
-  {
-    table_id = "bartable",
-    description = "This is a bar table"
-  }
-]

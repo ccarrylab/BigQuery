@@ -26,6 +26,12 @@ variable "access_rules" {
 #  type = list(map(string))
 }
 
+variable "tables" {
+  description = "A list of maps that includes both table_id and schema in each element, the table(s) will be created on the single dataset"
+}
+
+# This is how the tables variable needs to be declared if count argument is used
+
 /*variable "tables" {
   description = "A list of maps that includes both table_id and schema in each element, the table(s) will be created on the single dataset"
   default     = []
@@ -35,8 +41,3 @@ variable "access_rules" {
     labels   = map(string),
   }))
 }*/
-
-variable "tables" {
-  description = "A list of maps that includes both table_id and schema in each element, the table(s) will be created on the single dataset"
-  default     = []
-  }

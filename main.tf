@@ -36,8 +36,29 @@ resource "google_bigquery_dataset" "main" {
   }
 }
 
+resource "google_bigquery_table" "main" {
+  for_each = var.tables
 
+  project       = var.project_id
+  dataset_id    = google_bigquery_dataset.main.dataset_id
 
+  table_id      = each.key
+  description   = lookup (each.value,"description", null)
+  labels        = lookup (each.value,"labels", null)
+  expiration_time = lookup (each.value,"expiration_time", null)
+
+  external_data_configuration {
+      autodetect    = (lookup (each.value,"external_data_configuration", null)).autodetect
+      source_format = (lookup (each.value,"external_data_configuration", null)).source_format
+      source_uris = (lookup (each.value,"external_data_configuration", null)).source_uris
+    }
+
+  time_partitioning {
+    type = var.time_partitioning
+  }
+}
+
+# alternate approach using count argument
 
 /*resource "google_bigquery_table" "main" {
   count         = length(var.tables)
@@ -50,20 +71,3 @@ resource "google_bigquery_dataset" "main" {
     type = var.time_partitioning
   }
 }*/
-
-resource "google_bigquery_table" "main" {
-  for_each = [for t in var.tables: {
-    table_id = t.table_id
-    labels = t.labels
-  }
-]
-
-  dataset_id    = google_bigquery_dataset.main.dataset_id
-  table_id      = each.value.table_id
-  labels        = each.value.labels
-  project       = var.project_id
-
-  time_partitioning {
-    type = var.time_partitioning
-  }
-}
