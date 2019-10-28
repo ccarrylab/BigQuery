@@ -45,7 +45,6 @@ resource "google_bigquery_table" "main" {
   table_id      = each.key
   description   = lookup (each.value,"description", null)
   labels        = lookup (each.value,"labels", null)
-  expiration_time = lookup (each.value,"expiration_time", null)
   time_partitioning {
     type = var.time_partitioning
   }
