@@ -28,7 +28,7 @@ access_rules = [
 tables = {
  footable = {
     description = "This is footable"
-    expiration_time = 6600000
+    
     labels = {
       env      = "dev"
       billable = "true"
@@ -39,7 +39,7 @@ tables = {
 
  bartable = {
     description = "This is bartable"
-    expiration_time = 9600000
+
      labels = {
        env      = "devops"
        billable = "true"
