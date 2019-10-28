@@ -47,12 +47,6 @@ resource "google_bigquery_table" "main" {
   labels        = lookup (each.value,"labels", null)
   expiration_time = lookup (each.value,"expiration_time", null)
 
-  external_data_configuration {
-      autodetect    = (lookup (each.value,"external_data_configuration", null)).autodetect
-      source_format = (lookup (each.value,"external_data_configuration", null)).source_format
-      source_uris = (lookup (each.value,"external_data_configuration", null)).source_uris
-    }
-
   time_partitioning {
     type = var.time_partitioning
   }

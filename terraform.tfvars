@@ -34,11 +34,7 @@ tables = {
       billable = "true"
       owner    = "anubbhavm"
       }
-    external_data_configuration = {
-      autodetect    = true
-      source_format = "GOOGLE_SHEETS"
-      source_uris = []
-    }
+
   },
 
  bartable = {
@@ -50,12 +46,7 @@ tables = {
        owner    = "anubbhavm"
      }
 
-    external_data_configuration = {
-      autodetect    = false
-      source_format = "GOOGLE_SHEETS"
-      source_uris = []
     }
-  }
 }
 
 # This is how the tables variable needs to be input if count argument is used
