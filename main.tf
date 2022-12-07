@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "anubbhav-state"
+    bucket  = "gts-state"
     prefix  = "terraform/bqtest"
   }
 }
